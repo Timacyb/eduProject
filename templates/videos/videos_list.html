@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Videos List</title>
+</head>
+<body>
+{% for video in videos_list %}
+<a href="{% url 'videos_detail_page' video.pk %}">
+    <li>{{ video.title }}</li>
+</a>
+{% endfor %}
+</body>
+</html>

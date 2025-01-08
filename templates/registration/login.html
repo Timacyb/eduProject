@@ -1,0 +1,20 @@
+{% extends 'videos/base.html' %}
+{% load static %}
+{% block content %}
+          <div class="row">
+            <div class="col-lg-5 col-md-5 col-sm-5">
+              <div class="left_content">
+                <div class="contact_area">
+                    <h2>Veb-saytga kirish login</h2>
+                    <p>Agar sizda Login va Parol bo'lmasa biz bilan <a href="{% url 'contact_page' %}" >aloqaga</a> chiqing</p>
+                    <form method="POST">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        <button type="submit" class="btn btn-info" >Login</button>
+                    </form>
+                </div>
+              </div>
+            </div>
+          </div>
+
+   {% endblock content %}

@@ -1,0 +1,153 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="utf-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Video Detail</title>
+      <meta name="keywords" content="">
+      <meta name="description" content="">
+      <meta name="author" content="">
+      <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+      <link rel="stylesheet" href="{% static 'css/style.css' %}">
+      <link rel="stylesheet" href="{% static 'css/responsive.css' %}">
+      <link rel="icon" href="{% static 'images/fevicon.png' %}" type="image/gif" />
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <style>
+         /* Контейнер для видео */
+         .video-container {
+            text-align: center;
+            margin-top: 20px;
+            color: #333;
+         }
+
+         /* Обертка для видео с фоном */
+         .video-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #000;
+            padding: 10px;
+            border-radius: 10px;
+         }
+
+         /* Стили для видеоплеера */
+         .video-player {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+         }
+
+         /* Стили заголовков */
+         .video-container h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+         }
+
+         .video-container h3 {
+            font-size: 1.2rem;
+            color: #666;
+         }
+      </style>
+   </head>
+   <body>
+      <!--header section start -->
+      <div>
+         <div class="header_bg">
+            <div class="container">
+               <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+                  </button>
+                  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                     <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                           <a class="nav-link" href="{% url 'home_page' %}">Bosh sahifa</a>
+                        </li>
+                     </ul>
+                  </div>
+               </nav>
+            </div>
+         </div>
+      </div>
+      <!--header section end -->
+
+      <!-- Video content section -->
+      <div class="video-container">
+         <h1>{{ videos.title }}</h1>
+         <div class="video-wrapper">
+            <video class="video-player" controls controlsList="nodownload">
+               <source src="{{ videos.video.url }}" type="video/mp4">
+               Your browser does not support the video tag.
+            </video>
+         </div>
+         <h3>{{ videos.body }}</h3>
+      </div>
+
+      <!-- footer section start -->
+      <div class="footer_section layout_padding">
+         <div class="container">
+<!--            <div class="subscribe_bt"><a href="#">Subscribe</a></div>-->
+<!--            <input type="text" class="email_text" placeholder="Enter Your Email" name="Enter Your Email">-->
+            <div class="footer_section_2">
+               <div class="row">
+                  <div class="col-lg-3 margin_top">
+<!--                     <div class="call_text"><a href="#"><img src="{% static 'images/call-icon1.png' %}"><span class="padding_left_15">Call Now +01 9876543210</span></a></div>-->
+<!--                     <div class="call_text"><a href="#"><img src="{% static 'images/mail-icon1.png' %}"><span class="padding_left_15">demo@gmail.com</span></a></div>-->
+                  </div>
+                  <div class="col-lg-3">
+                     <div>
+                        <h4 class="information_text">Info:</h4>
+<!--                        <p class="many_text">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration</p>-->
+                     <div class="call_text"><a href="#"><img src="{% static 'images/call-icon1.png' %}"><span class="padding_left_15">Telefon: +998 90 123 45 67</span></a></div>
+                     <div class="call_text"><a href="#"><img src="{% static 'images/mail-icon1.png' %}"><span class="padding_left_15">cyberedu@gmail.com</span></a></div>
+
+                     </div>
+                  </div>
+                  <div class="col-lg-3 col-md-6">
+                     <div class="information_main">
+                        <h4 class="information_text">Linklar:</h4>
+                        <div class="footer_menu">
+                           <ul>
+                              <li><a href="{% url 'home_page' %}">Telegram</a></li>
+                              <li><a href="about.html">Instagram</a></li>
+                              <li><a href="services.html">Facebook</a></li>
+                              <li><a href="blog.html">LinkedIn</a></li>
+                              <li><a href="news.html">GitHub</a></li>
+                           </ul>
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-lg-3">
+                     <div class="information_main">
+<!--                        <div class="footer_logo"><a href="{% url 'home_page' %}"><img src="{% static 'images/footer-logo.png' %}"></a></div>-->
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      <!-- footer section end -->
+      <!-- copyright section start -->
+      <div class="copyright_section">
+         <div class="container">
+            <p class="copyright_text">© 2020 All Rights Reserved. <a href="https://html.design">Free html  Templates</a></p>
+         </div>
+      </div>
+
+      <!-- copyright section end -->
+      <!-- Javascript files-->
+      <script src="js/jquery.min.js"></script>
+      <script src="js/popper.min.js"></script>
+      <script src="js/bootstrap.bundle.min.js"></script>
+      <script src="js/jquery-3.0.0.min.js"></script>
+      <script src="js/plugin.js"></script>
+      <!-- sidebar -->
+      <script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+      <script src="js/custom.js"></script>
+      <!-- javascript -->
+      <script src="https:cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.js"></script>
+   </body>
+</html>
+

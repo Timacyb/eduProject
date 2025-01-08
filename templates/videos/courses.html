@@ -1,0 +1,73 @@
+{% extends 'videos/base.html' %}
+{% load static %}
+{% block content %}
+<!--          <div class="row" style="margin-left: 300px">-->
+            <div class="col-lg-5 col-md-5 col-sm-5">
+              <div class="left_content">
+                <div class="contact_area" style="margin-left:15px">
+                    <div class="services_section layout_padding">
+         <div class="container">
+            <h1 class="services_taital"><span style="color: #fcce2d">Kurslar</span> Ro'yhati</h1>
+            <div class="services_section_2">
+               <div class="row">
+                  <div class="col-md-6">
+                     <div class="image_main">
+                        <img src="{% static 'images/img2.png' %}" class="image_8" style="width:100%">
+                        <div class="text_main">
+                            {% if user.is_authenticated%}
+                           <div class="seemore_text"><a href="{% url 'network_page' %}"> Tarmoq Xavfsizligi </a></div>
+                            {% else %}
+                            <div class="seemore_text"> Kursni ko'rishingiz uchun LOGIN qiling! </div>
+                            {% endif %}
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-6">
+                     <div class="image_main">
+                        <img src="{% static 'images/img3.png' %}" class="image_8" style="width:100%">
+                        <div class="text_main">
+                            {% if user.is_authenticated%}
+                           <div class="seemore_text"><a href="{% url 'pentesting_page' %}"> Pentesting </a></div>
+                            {% else %}
+                            <div class="seemore_text"> Kursni ko'rishingiz uchun LOGIN qiling! </div>
+                            {% endif %}
+                        </div>
+                     </div>
+                  </div>
+               </div>
+               <div class="row">
+                  <div class="col-md-6">
+                     <div class="image_main">
+                        <img src="{% static 'images/img4.png' %}" class="image_8" style="width:100%">
+                        <div class="text_main">
+                           {% if user.is_authenticated%}
+                          <div class="seemore_text"><a href="{% url 'cyber_criminalistic_page' %}">Kiber Kriminalistika</a> </div>
+                            {% else %}
+                            <div class="seemore_text"> Kursni ko'rishingiz uchun LOGIN qiling! </div>
+                          {% endif %}
+                        </div>
+                     </div>
+                  </div>
+                  <div class="col-md-6">
+                     <div class="image_main">
+                        <img src="{% static 'images/img5.png' %}" class="image_8" style="width:100%">
+                        <div class="text_main">
+                            {% if user.is_authenticated%}
+                           <div class="seemore_text"><a href="{% url 'operation_system_page' %}"> Operatsion Tizim Xavfsizligi </a></div>
+                            {% else %}
+                            <div class="seemore_text"> Kursni ko'rishingiz uchun LOGIN qiling! </div>
+                            {% endif %}
+                        </div>
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+                </div>
+              </div>
+            </div>
+          </div>
+         </div>
+<!--      </div>-->
+      {% endblock content %}

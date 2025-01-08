@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<h1>Результаты теста: {{ quiz.title }}</h1>
+<table>
+    <thead>
+        <tr>
+            <th>Пользователь</th>
+            <th>Оценка</th>
+            <th>Баллы</th>
+            <th>Время прохождения</th>
+            <th>Дата завершения</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for result in results %}
+        <tr>
+            <td>{{ result.user.username }}</td>
+            <td>{{ result.grade }}%</td>
+            <td>{{ result.score }}</td>
+            <td>{{ result.time_spent }} сек.</td>
+            <td>{{ result.completed_at }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+</body>
+</html>
