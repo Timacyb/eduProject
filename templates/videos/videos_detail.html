@@ -50,6 +50,14 @@
             color: #666;
          }
       </style>
+       <script>
+            document.addEventListener('contextmenu', function (e) {
+                if (e.target.tagName === 'VIDEO') {
+                    e.preventDefault();
+                }
+            });
+        </script>
+
    </head>
    <body>
       <!--header section start -->

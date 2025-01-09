@@ -150,7 +150,7 @@
                 <div class="blog_card">
                     <img src="{{ yangi.image.url }}" class="img-fluid blog_image" alt="{{ yangi.title }}">
                     <h5 class="blog_title">{{ yangi.title }}</h5>
-                    <p class="blog_body">{{ yangi.body|truncatewords:50 }}</p>
+                    <p class="blog_body">{{ yangi.body|truncatewords:100 | safe }}</p>
                 </div>
             </div>
             {% endfor %}
