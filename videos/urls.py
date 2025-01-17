@@ -2,7 +2,8 @@ from django.urls import path
 
 from .views import videos_list, homePageView, ContactPageView, BlogPageView, AboutPageView, \
     NetworkSecurityView, OperationSystemSecurityView, CyberCriminalisticView, PentestingView, videos_detail, \
-    QuizListView, QuizView, CoursesView, yangi_list, instrument_list, termin_list, kitob_list, quiz_results
+    QuizListView, QuizView, CoursesView, yangi_list, instrument_list, termin_list, kitob_list, quiz_results, \
+    SearchResultView
 
 urlpatterns = [
     path('all/', videos_list, name='all_videos_list'),
@@ -22,4 +23,5 @@ urlpatterns = [
     path('termins/', termin_list, name="termin_list"),
     path('kitob/', kitob_list, name="kitoblar_page"),
     path('quiz/<int:quiz_id>/results/', quiz_results, name='quiz_results'),
+    path('searchresult/', SearchResultView.as_view(), name='search_result'),
 ]

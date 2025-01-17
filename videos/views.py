@@ -2,6 +2,7 @@ from django.contrib.admin.views.decorators import staff_member_required
 from django.contrib.auth.decorators import login_required, user_passes_test
 from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
 from django.contrib.auth.models import User
+from django.db.models import Q
 from django.http import HttpResponse, Http404, HttpResponseForbidden
 from django.shortcuts import render, get_object_or_404, redirect
 from django.urls import reverse_lazy
@@ -63,16 +64,11 @@ class BlogPageView(TemplateView):
 
 
 class AboutPageView(TemplateView):
-    template_name = 'videos/about.html'
+    template_name = 'videos/error.html'
 
 
 #     # Дополнительные методы, если нужно, можно также разместить в этом базовом классе
 class BaseSubadminView(LoginRequiredMixin, UserPassesTestMixin, ListView):
-    """
-    Базовый класс, который проверяет, что пользователь аутентифицирован, активен,
-    и является членом группы "Subadmin".
-    """
-
     login_url = reverse_lazy('login_page')  # Задаем URL для перенаправления
 
     def test_func(self):
@@ -153,14 +149,12 @@ class CyberCriminalisticView(BaseSubadminView):
 #         )
 
 def videos_detail(request, id):
-    # Проверяем, что пользователь аутентифицирован и активен
     if not request.user.is_authenticated:
         return redirect('login_page')  # Перенаправление на страницу входа, если пользователь не авторизован
 
     if not request.user.is_active:
         return HttpResponseForbidden("Ваш аккаунт неактивен. Пожалуйста, свяжитесь с администратором.")
 
-    # Получаем видео только если оно опубликовано
     videos = get_object_or_404(Videos, id=id, status=Videos.Status.Published)
 
     context = {
@@ -307,3 +301,15 @@ def kitob_list(request):
 
 def page_not_found(request, exception):
     return render(request, 'videos/404.html', status=404)
+
+
+class SearchResultView(ListView):
+    model = Termin
+    template_name = 'videos/search_result.html'
+    context_object_name = 'barcha_terminlar'
+
+    def get_queryset(self):
+        query = self.request.GET.get('q')
+        return Termin.objects.filter(
+            Q(title__icontains=query) | Q(body__icontains=query)
+        )
