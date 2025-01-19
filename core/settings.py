@@ -20,7 +20,7 @@ SECRET_KEY = config('SECRET_KEY')
 
 DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1", "cyber-news.uz", "www.cyber-news.uz"]
+ALLOWED_HOSTS = ["127.0.0.1", "kiberolam.uz", "www.kiberolam.uz"]
 
 INSTALLED_APPS = [
     'accounts',
